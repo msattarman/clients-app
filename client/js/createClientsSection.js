@@ -55,7 +55,7 @@ export const createClientsSection = () => {
 
    main.append(section);
    section.append(container);
-   sortingDisplayName.append(sortingDisplaySpan);
+   sortingDisplayName.appendChild(sortingDisplaySpan);
    sortingDisplayCreate.append(createSpan);
    sortingDisplayEdit.append(editSpan);
    theadTr.append(
