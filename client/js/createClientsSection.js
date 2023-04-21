@@ -36,7 +36,7 @@ export const createClientsSection = () => {
    sortingDisplaySpan.classList.add('display-info__sorting');
    addUserBtn.classList.add('clients__btn', 'btn-reset');
    addUserBtnSvg.classList.add('clients__svg', 'btn-reset');
-   container.classList.add('container');
+   container.classList.add('container', 'clients__container');
    main.classList.add('main');
    clientsTable.classList.add('clients__table');
    createSpan.classList.add('create__span');
