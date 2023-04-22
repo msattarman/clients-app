@@ -1,15 +1,15 @@
-import { svgContactDefault, svgContactHover } from "./svg";
+import { svgContactDefault, svgContactHover } from "./svg.js";
 
 export const createClientsForm = () => {
-   const modalTitle = document.createComment('h2');
-   const modalClose = document.createComment('button');
-   const form = document.createComment('form');
-   const inputName = document.createComment('input');
-   const labelName = document.createComment('label');
-   const inputSurname = document.createComment('input');
-   const labelSurname = document.createComment('label');
-   const inputLastName = document.createComment('input');
-   const labelLastName = document.createComment('label');
+   const modalTitle = document.createElement('h2');
+   const modalClose = document.createElement('button');
+   const form = document.createElement('form');
+   const inputName = document.createElement('input');
+   const labelName = document.createElement('label');
+   const inputSurname = document.createElement('input');
+   const labelSurname = document.createElement('label');
+   const inputLastName = document.createElement('input');
+   const labelLastName = document.createElement('label');
    const requiredName = document.createElement('span');
    const requiredSurname = document.createElement('span');
    const addContactBtn = document.createElement('button');
@@ -39,7 +39,7 @@ export const createClientsForm = () => {
    addContactBtn.classList.add('modal__btn-contact', 'modal__btn-contact--active');
    saveBtn.classList.add('modal__btn-save', 'btn-reset', 'site-btn');
    cancelBtn.classList.add('modal__btn-back', 'btn-reset');
-   contactBtnSvgDefault.add('btn-contact__svg', 'btn-contact__svg--default', 'btn-contact__svg--active');
+   contactBtnSvgDefault.classList.add('btn-contact__svg', 'btn-contact__svg--default', 'btn-contact__svg--active');
    contactBtnSvgHover.classList.add('btn-contact__svg', 'btn-contact__svg--hover');
    contactsBlock.classList.add('modal__contact');
 
