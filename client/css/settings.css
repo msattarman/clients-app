@@ -61,7 +61,13 @@ a {
    background-color: transparent;
 }
 
+.site-btn {
+   background-color: var(--color-emerald);
+   color: var(--color-white);
+}
+
 :root {
+   --color-gray-suit: #c8c5d1;
    --color-black3: #333333;
    --color-white: #ffffff;
    --color-wild-cand: #f5f5f5;
