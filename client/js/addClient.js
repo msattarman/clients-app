@@ -12,5 +12,15 @@ export const addClientModal = () => {
    modal.append(modalContent);
    modalContent.append(createForm.modalClose, createForm.modalTitle, createForm.form); 
 
+   createForm.modalClose.addEventListener('click', () => {
+      modal.remove();
+   })
+
+   document.addEventListener('click', (e) => {
+      if (e.target == modal) {
+         modal.remove();
+      }
+   });
+
    return modal;
 }
