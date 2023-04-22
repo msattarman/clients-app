@@ -1,4 +1,4 @@
-import { createClientsForm } from "./createModalForm"
+import { createClientsForm } from "./createModalForm.js"
 
 export const addClientModal = () => {
    const createForm = createClientsForm();
