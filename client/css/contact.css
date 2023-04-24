@@ -24,7 +24,30 @@
    color: var(--color-black3);
 }
 
+.contact__name::before {
+   content: '';
+   position: absolute;
+   right: 15px;
+   top: 15px;
+   width: 10px;
+   height: 10px;
+   background-image: url('../img/contact-arrow.svg');
+   background-repeat: no-repeat;
+   background-position: center center;
+   transition: transform .3s ease-in-out;
+}
+
 .contact__name:hover {
    background-color: var(--color-gray-suit);
    transition: background-color .3s ease-in-out;
+}
+
+.contact__name:active {
+   background-color: var(--color-mishka);
+   transition: background-color .3s ease-in-out;
+}
+
+.contact__list--active.contact__name::before {
+   transform: rotate(-180deg);
+   transition: transform .3s ease-in-out;
 }

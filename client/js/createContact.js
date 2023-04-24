@@ -19,7 +19,7 @@ export const createContactItem = () => {
    contactType.classList.add('contact__type');
    contactName.classList.add('contact__name');
    contactList.classList.add('contact__list');
-   contactPhone.classList.add('contact__list');
+   contactPhone.classList.add('contact__phone');
    contactVk.classList.add('contact__item');
    contactFb.classList.add('contact__item');
    contactEmail.classList.add('contact__item');
