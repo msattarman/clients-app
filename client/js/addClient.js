@@ -1,3 +1,4 @@
+import { createClient } from "./clientsApi.js";
 import { createClientsForm } from "./createModalForm.js"
 
 export const addClientModal = () => {
@@ -12,7 +13,7 @@ export const addClientModal = () => {
    modal.append(modalContent);
    modalContent.append(createForm.modalClose, createForm.modalTitle, createForm.form); 
 
-   createForm.form.addEventListener('submit', (e) => {
+   createForm.form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
       const contactTypes = document.querySelectorAll('.contact__name');
@@ -33,6 +34,8 @@ export const addClientModal = () => {
       clientObj.lastname = createForm.inputLastName.value;
       clientObj.contacts = contacts;
       console.log(clientObj);
+
+      await createClient(clientObj);
    })
 
    createForm.modalClose.addEventListener('click', () => {
