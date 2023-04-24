@@ -18,8 +18,8 @@ export const createContactItem = () => {
    contactDeleteTooltip.classList.add('contact-tooltip', 'site-tooltip');
    contactType.classList.add('contact__type');
    contactName.classList.add('contact__name');
-   contactList.classList.add('contact__list');
-   contactPhone.classList.add('contact__phone');
+   contactList.classList.add('contact__list', 'list-reset');
+   contactPhone.classList.add('contact__item');
    contactVk.classList.add('contact__item');
    contactFb.classList.add('contact__item');
    contactEmail.classList.add('contact__item');
