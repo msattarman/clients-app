@@ -15,8 +15,18 @@ export const addClientModal = () => {
    createForm.form.addEventListener('submit', (e) => {
       e.preventDefault();
 
+      const contactTypes = document.querySelectorAll('.contact__name');
+      const contactValues = document.querySelectorAll('.contact__input');
+
       let contacts = [];
       let clientObj = {};
+
+      for (let i = 0; i < contactTypes.length; i++) {
+         contacts.push({
+            type: contactTypes[i].innerHTML,
+            value: contactValues[i].value
+         })
+      }
 
       clientObj.name = createForm.inputName.value;
       clientObj.surname = createForm.inputSurname.value;
