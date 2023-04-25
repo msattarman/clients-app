@@ -1,1 +1,85 @@
-[{"name":"sdfsf","surname":"dsfsdf","lastName":"","contacts":[],"id":"1682426434087","updatedAt":"2023-04-25T12:40:34.088Z","createdAt":"2023-04-25T12:40:34.088Z"}]
+[
+   {
+      "name": "Имя",
+      "surname": "Фамилия",
+      "lastName": "Отчество",
+      "contacts": [
+         {
+            "type": "Другое",
+            "value": "twitter@mail.com"
+         },
+         {
+            "type": "Facebook",
+            "value": "dsfsdf@FB.com"
+         },
+         {
+            "type": "VK",
+            "value": "dsfds@vk.com"
+         },
+         {
+            "type": "Email",
+            "value": "qweewtr@gmail.com"
+         },
+         {
+            "type": "Телефон",
+            "value": "8999999999999"
+         }
+      ],
+      "id": "1682430608958",
+      "updatedAt": "2023-04-25T13:50:08.958Z",
+      "createdAt": "2023-04-25T13:50:08.958Z"
+   },
+   {
+      "name": "Jon",
+      "surname": "Bayer",
+      "lastName": "",
+      "contacts": [
+         {
+            "type": "VK",
+            "value": "выаываыва"
+         },
+         {
+            "type": "Телефон",
+            "value": "894653135123"
+         }
+      ],
+      "id": "1682431253239",
+      "updatedAt": "2023-04-25T14:00:53.239Z",
+      "createdAt": "2023-04-25T14:00:53.239Z"
+   },
+   {
+      "name": "fsdf",
+      "surname": "dsfsdf",
+      "lastName": "dsfsdf",
+      "contacts": [],
+      "id": "1682431429094",
+      "updatedAt": "2023-04-25T14:03:49.094Z",
+      "createdAt": "2023-04-25T14:03:49.094Z"
+   },
+   {
+      "name": "juliya",
+      "surname": "miss",
+      "lastName": "vita",
+      "contacts": [
+         {
+            "type": "Телефон",
+            "value": ""
+         },
+         {
+            "type": "VK",
+            "value": "dsfsdf@Vk.com"
+         },
+         {
+            "type": "Email",
+            "value": "dsfsdf@mail.com"
+         },
+         {
+            "type": "Телефон",
+            "value": "8927565156"
+         }
+      ],
+      "id": "1682431497605",
+      "updatedAt": "2023-04-25T14:04:57.605Z",
+      "createdAt": "2023-04-25T14:04:57.605Z"
+   }
+]

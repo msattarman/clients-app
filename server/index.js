@@ -66,6 +66,7 @@ function makeClientFromData(data) {
    // проверяем, все ли данные корректные и заполняем объект ошибок, которые нужно отдать клиенту
    if (!client.name) errors.push({ field: 'name', message: 'Не указано имя' });
    if (!client.surname) errors.push({ field: 'surname', message: 'Не указана фамилия' });
+   if (!client.lastName) errors.push({ field: 'lastname', message: 'Не указано отчество' });
    if (client.contacts.includes(contact => !contact.type || !contact.value))
       errors.push({ field: 'contacts', message: 'Не все добавленные контакты полностью заполнены' });
 

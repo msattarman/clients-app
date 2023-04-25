@@ -1,4 +1,4 @@
-import { formatDate, formatTime } from "./utils.js";
+import { createContactItemByType, formatDate, formatTime } from "./utils.js";
 
 export const createClientItem = (data) => {
    const clientTr = document.createElement('tr');
@@ -36,6 +36,10 @@ export const createClientItem = (data) => {
    clientContacts.classList.add('clients__contacts');
    clientDelete.classList.add('clients__delete', 'btn-reset');
    clientEdit.classList.add('clients__edit', 'btn-reset');
+
+   for (const contact of data.contacts) {
+      createContactItemByType(contact.type, contact.value, clientContacts);
+   }
 
    clientId.textContent = data.id.substr(0, 6);
    clientName.textContent = data.name;
