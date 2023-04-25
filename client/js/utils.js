@@ -1,4 +1,4 @@
-import { svgEmail, svgFb, svgOther, svgPhone, svgVk } from "./svg.js";
+import { svgPhone, svgFb, svgVk, svgEmail, svgOther } from "./svg.js";
 
 export const createContactLink = (type, value, element, svg, item) => {
    element = document.createElement('a');
@@ -6,9 +6,9 @@ export const createContactLink = (type, value, element, svg, item) => {
    element.innerHTML = svg;
 
    if (type === 'Email') {
-      element.href = `mailto:${value.trim()}`;
+      element.href = `mailto:${value.trim()}`
    } else if (type === 'Телефон') {
-      element.href = `tel:${value.trim()}`;
+      element.href = `tel:${value.trim()}`
    } else {
       element.href = value.trim();
    }
@@ -20,25 +20,31 @@ export const createContactItemByType = (type, value, item) => {
    switch (type) {
       case 'Телефон':
          let phone;
-         createContactLink(type, value, phone, svgPhone, type);
+         createContactLink(type, value, phone, svgPhone, item);
+         break;
       case 'Facebook':
          let fb;
-         createContactLink(type, value, fb, svgFb, type);
+         createContactLink(type, value, fb, svgFb, item);
+         break;
       case 'VK':
          let vk;
-         createContactLink(type, value, vk, svgVk, type);
+         createContactLink(type, value, vk, svgVk, item);
+         break;
       case 'Email':
          let email;
-         createContactLink(type, value, email, svgEmail, type);
-      case 'Other':
+         createContactLink(type, value, email, svgEmail, item);
+         break;
+      case 'Email':
          let other;
-         createContactLink(type, value, other, svgOther, type);
+         createContactLink(type, value, other, svgOther, item);
+         break;
+
       default:
          break;
    }
 }
 
-export const formatDate = (data) => {
+export const formatDate = data => {
    const newDate = new Date(data);
 
    const correctDate = {
@@ -52,7 +58,7 @@ export const formatDate = (data) => {
    return resultDate;
 }
 
-export const formatTime = (data) => {
+export const formatTime = data => {
    const newDate = new Date(data);
 
    const correctDate = {
