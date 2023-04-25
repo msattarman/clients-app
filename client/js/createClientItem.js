@@ -16,6 +16,25 @@ export const createClientItem = (data) => {
    const clientEdit = document.createElement('button');
    const clientDelete = document.createElement('button');
 
+   clientTr.classList.add('clients__item');
+   clientTr.id = data.id;
+   clientId.classList.add('client__id');
+   clientFullName.classList.add('clients__full-name');
+   clientName.classList.add('clients__name');
+   clientSurname.classList.add('clients__surname');
+   clientLastName.classList.add('clients__lastname');
+   clientCreated.classList.add('clients__created');
+   createdDate.classList.add('created__date');
+   createdTime.classList.add('created__time');
+   clientChanged.classList.add('clients__changed');
+   changedDate.classList.add('changed__date');
+   changedTime.classList.add('changed__time');
+   clientContacts.classList.add('clients__contacts');
+   clientActions.classList.add('clients__actions');
+   clientContacts.classList.add('clients__contacts');
+   clientDelete.classList.add('clients__delete', 'btn-reset');
+   clientEdit.classList.add('clients__edit', 'btn-reset');
+
    clientId.textContent = data.id.substr(0, 6);
    clientName.textContent = data.name;
    clientSurname.textContent = data.surname;
