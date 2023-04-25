@@ -31,7 +31,7 @@ export const addClientModal = () => {
 
       clientObj.name = createForm.inputName.value;
       clientObj.surname = createForm.inputSurname.value;
-      clientObj.lastname = createForm.inputLastName.value;
+      clientObj.lastName = createForm.inputLastName.value;
       clientObj.contacts = contacts;
       console.log(clientObj);
 
