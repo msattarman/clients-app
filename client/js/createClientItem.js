@@ -1,4 +1,5 @@
 import { deleteClientModal } from "./createDeleteModal.js";
+import { editClientModal } from "./editClient.js";
 import { createContactItemByType, formatDate, formatTime } from "./utils.js";
 
 export const createClientItem = (data) => {
@@ -20,6 +21,7 @@ export const createClientItem = (data) => {
    const clientDelete = document.createElement('button');
 
    const deleteClient = deleteClientModal();
+   const editClient = editClientModal(data);
 
    clientTr.classList.add('clients__item');
    clientTr.id = data.id;
@@ -56,6 +58,10 @@ export const createClientItem = (data) => {
    clientDelete.addEventListener('click', () => {
       deleteById();
       document.body.append(deleteClient.deleteModal);
+   });
+
+   clientEdit.addEventListener('click', () => {
+      document.body.append(editClient.editModal);
    });
 
    clientId.textContent = data.id.substr(0, 6);
