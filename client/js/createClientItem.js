@@ -1,3 +1,4 @@
+import { deleteClientModal } from "./createDeleteModal.js";
 import { createContactItemByType, formatDate, formatTime } from "./utils.js";
 
 export const createClientItem = (data) => {
@@ -17,6 +18,8 @@ export const createClientItem = (data) => {
    const clientActions = document.createElement('td');
    const clientEdit = document.createElement('button');
    const clientDelete = document.createElement('button');
+
+   const deleteClient = deleteClientModal()
 
    clientTr.classList.add('clients__item');
    clientTr.id = data.id;
@@ -39,7 +42,18 @@ export const createClientItem = (data) => {
 
    for (const contact of data.contacts) {
       createContactItemByType(contact.type, contact.value, clientContacts);
-   }
+   };
+
+   const deleteById = () => {
+      import('./clientsApi.js').then(({ deleteClientItem} ) => {
+         deleteClientItem(data.id);
+         document.getElementById(data.id).remove();
+      });
+   };
+
+   clientDelete.addEventListener('click', () => {
+      document.body.append(deleteClient.deleteModal);
+   });
 
    clientId.textContent = data.id.substr(0, 6);
    clientName.textContent = data.name;
