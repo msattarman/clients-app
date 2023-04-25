@@ -1,3 +1,5 @@
+import { formatDate, formatTime } from "./utils.js";
+
 export const createClientItem = (data) => {
    const clientTr = document.createElement('tr');
    const clientId = document.createElement('span');
@@ -40,7 +42,11 @@ export const createClientItem = (data) => {
    clientSurname.textContent = data.surname;
    clientLastName.textContent = data.lastName;
    clientEdit.textContent = 'Изменить';
-   clientDelete.textContent = 'Удалить'
+   clientDelete.textContent = 'Удалить';
+   createdDate.textContent = formatDate(data.createdAt);
+   createdTime.textContent = formatTime(data.createdAt);
+   changedDate.textContent = formatDate(data.updatedAt);
+   changedTime.textContent = formatTime(data.updatedAt);
 
    clientFullName.append(clientName, clientSurname, clientLastName);
    clientCreated.append(createdDate, createdTime);
