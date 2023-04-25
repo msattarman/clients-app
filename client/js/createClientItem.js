@@ -19,7 +19,7 @@ export const createClientItem = (data) => {
    const clientEdit = document.createElement('button');
    const clientDelete = document.createElement('button');
 
-   const deleteClient = deleteClientModal()
+   const deleteClient = deleteClientModal();
 
    clientTr.classList.add('clients__item');
    clientTr.id = data.id;
@@ -46,12 +46,15 @@ export const createClientItem = (data) => {
 
    const deleteById = () => {
       import('./clientsApi.js').then(({ deleteClientItem} ) => {
-         deleteClientItem(data.id);
-         document.getElementById(data.id).remove();
+         deleteClient.deleteModalDelete.addEventListener('click', () => {
+            deleteClientItem(data.id);
+            document.getElementById(data.id).remove();
+         });
       });
    };
 
    clientDelete.addEventListener('click', () => {
+      deleteById();
       document.body.append(deleteClient.deleteModal);
    });
 

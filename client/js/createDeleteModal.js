@@ -29,11 +29,19 @@ export const deleteClientModal = () => {
    )
    deleteModal.append(deleteModalContent);
 
+   modalClose.addEventListener('click', () => {
+      deleteModal.remove();
+   });
+
+   deleteModalBack.addEventListener('click', () => {
+      deleteModal.remove();
+   });
+
    window.addEventListener('click', (e) => {
       if (e.target === deleteModal) {
          deleteModal.remove();
-      }
-   })
+      };
+   });
 
    return {
       deleteModal,
