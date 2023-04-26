@@ -48,6 +48,10 @@ export const editClientModal = (data) => {
       createForm.contactsBlock.style.backgroundColor = 'var(--color-athens-gray)';
    }
 
+   if (data.contacts.length == 10) {
+      createForm.addContactBtn.classList.remove('modal__btn-contact--active');
+   }
+
    createForm.modalTitle.append(titleId);
    editModalContent.append(createForm.modalClose, createForm.modalTitle, createForm.form);
    editModal.append(editModalContent);
