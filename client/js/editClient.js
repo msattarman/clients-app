@@ -31,7 +31,11 @@ export const editClientModal = (data) => {
 
    createForm.modalClose.addEventListener('click', () => {
       editModal.remove();
-   })
+   });
+
+   createForm.inputName.value = data.name;
+   createForm.inputSurname.value = data.surname;
+   createForm.inputLastName.value = data.lastName;
 
    createForm.modalTitle.append(titleId);
    editModalContent.append(createForm.modalClose, createForm.modalTitle, createForm.form);
