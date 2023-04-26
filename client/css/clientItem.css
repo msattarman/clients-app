@@ -79,11 +79,13 @@
 }
 
 .clients__edit {
+   transition: color .3s ease-in-out;
    margin-right: 32px;
    background-image: url('../img/edit.svg');
 }
 
 .clients__delete {
+   transition: color .3s ease-in-out;
    margin-right: 32px;
    background-image: url('../img/cancel.svg');
 }
