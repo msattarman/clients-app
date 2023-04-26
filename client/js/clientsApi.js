@@ -12,9 +12,9 @@ export const getClients = async () => {
    }
 }
 
-export const sendClientData = async (client, method) => {
+export const sendClientData = async (client, method, id = null) => {
    try {
-      await fetch(`http://localhost:3000/api/clients/${method === 'POST' ? '' : client.id}`, {
+      await fetch(`http://localhost:3000/api/clients/${method === 'POST' ? '' : id}`, {
          method,
          body: JSON.stringify(client),
       });

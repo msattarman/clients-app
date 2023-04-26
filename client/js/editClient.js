@@ -1,3 +1,4 @@
+import { sendClientData } from "./clientsApi.js";
 import { createContactItem } from "./createContact.js";
 import { deleteClientModal } from "./createDeleteModal.js";
 import { createClientsForm } from "./createModalForm.js";
@@ -51,6 +52,29 @@ export const editClientModal = (data) => {
    if (data.contacts.length == 10) {
       createForm.addContactBtn.classList.remove('modal__btn-contact--active');
    }
+
+   createForm.form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const contactTypes = document.querySelectorAll('.contact__name');
+      const contactValues = document.querySelectorAll('.contact__input');
+      let contacts = [];
+      let client = {};
+
+      for (let i = 0; i < contactTypes.length; i++) {
+         contacts.push({
+            type: contactTypes[i].innerHTML,
+            value: contactValues[i].value,
+         });
+      }
+
+      client.name = createForm.inputName.value;
+      client.surname = createForm.inputSurname.value;
+      client.lastName = createForm.inputLastName.value;
+      client.contacts = contacts;
+
+      sendClientData(client, 'PATCH', data.id);
+   });
 
    createForm.modalTitle.append(titleId);
    editModalContent.append(createForm.modalClose, createForm.modalTitle, createForm.form);
