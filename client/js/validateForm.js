@@ -18,7 +18,7 @@ export const validateClientForm = () => {
          }
       });
 
-      input.oncut = input.oncopy = input.onpast = () => {
+      input.oncut = input.oncopy = input.onpaste = () => {
          input.style.borderColor = 'var(--color-gray-suit)';
          for (const item of validateArray) {
             item.textContent = '';
@@ -41,7 +41,7 @@ export const validateClientForm = () => {
    onInputValue(userLastName);
 
    const checkRequiredName = (input, message, name) => {
-      if(!input.valut) {
+      if (!input.value) {
          input.style.borderColor = 'var(--color-burnt-sienna)';
          message.textContent = `Введите ${name} клиента!`;
          return false;

@@ -39,6 +39,8 @@ export const addClientModal = () => {
       clientObj.lastName = createForm.inputLastName.value;
       clientObj.contacts = contacts;
       console.log(clientObj);
+
+      await sendClientData(clientObj, 'POST');
    });
 
    createForm.modalClose.addEventListener('click', () => {
