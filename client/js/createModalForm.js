@@ -91,11 +91,13 @@ export const createClientsForm = () => {
    formFloatingSurname.append(inputSurname, labelSurname);
    formFloatingLastName.append(inputLastName, labelLastName);
    contactsBlock.append(addContactBtn);
+   errorBlock.append(writeName, writeSurname, writeLastName, requiredContacts, requiredValue, unacceptableLetter)
    form.append(
       formFloatingName,
       formFloatingSurname,
       formFloatingLastName,
       contactsBlock,
+      errorBlock,
       saveBtn,
       cancelBtn,
    );
