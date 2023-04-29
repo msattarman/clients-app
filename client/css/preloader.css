@@ -13,8 +13,8 @@
 
 #loader {
    --background: #62ABFF;
-   --front-color: #8052ff;
-   --back-color: #C3C8DE;
+   --front-color: var(--color-emerald);
+   --back-color: var(--color-silver-chalic);
    --text-color: #414856;
    width: 64px;
    height: 64px;
