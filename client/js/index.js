@@ -2,6 +2,7 @@ import { createClientsHeader } from "./createHeader.js";
 import { createClientsSection } from "./createClientsSection.js";
 import { getClients } from "./clientsApi.js";
 import { createClientItem } from "./createClientItem.js";
+import { sortTable } from "./sortClientsTable.js";
 
 const createApp = async () => {
    const header = createClientsHeader();
@@ -22,3 +23,4 @@ const createApp = async () => {
 }
 
 createApp();
+document.addEventListener('DOMContentLoaded', () => sortTable());

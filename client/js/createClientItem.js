@@ -5,6 +5,7 @@ import { createContactItemByType, formatDate, formatTime } from "./utils.js";
 
 export const createClientItem = (data) => {
    const clientTr = document.createElement('tr');
+   const clientIdTd = document.createElement('td');
    const clientId = document.createElement('span');
    const clientFullName = document.createElement('td');
    const clientName = document.createElement('span');
@@ -30,7 +31,7 @@ export const createClientItem = (data) => {
 
    clientTr.classList.add('clients__item');
    clientTr.id = data.id;
-   clientId.classList.add('client__id');
+   clientIdTd.classList.add('client__id');
    clientFullName.classList.add('clients__full-name');
    clientName.classList.add('clients__name');
    clientSurname.classList.add('clients__surname');
@@ -97,7 +98,7 @@ export const createClientItem = (data) => {
 
    deleteSpinner.innerHTML = svgSpinner;
    editSpinner.innerHTML = svgSpinner;
-   clientId.textContent = data.id.substr(0, 6);
+   clientId.textContent = Math.floor(Math.random() * 15);
    clientName.textContent = data.name;
    clientSurname.textContent = data.surname;
    clientLastName.textContent = data.lastName;
@@ -108,6 +109,7 @@ export const createClientItem = (data) => {
    changedDate.textContent = formatDate(data.updatedAt);
    changedTime.textContent = formatTime(data.updatedAt);
 
+   clientIdTd.append(clientId);
    clientFullName.append(clientName, clientSurname, clientLastName);
    clientCreated.append(createdDate, createdTime);
    clientChanged.append(changedDate, changedTime);
@@ -115,7 +117,7 @@ export const createClientItem = (data) => {
    clientEdit.append(editSpinner);
    clientActions.append(clientEdit, clientDelete);
    clientTr.append(
-      clientId,
+      clientIdTd,
       clientFullName,
       clientCreated,
       clientChanged,
