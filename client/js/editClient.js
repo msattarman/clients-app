@@ -1,9 +1,10 @@
-import { sendClientData } from "./clientsApi.js";
-import { createContactItem } from "./createContact.js";
-import { deleteClientModal } from "./createDeleteModal.js";
 import { createClientsForm } from "./createModalForm.js";
-import { validateClientContact } from "./validateContact.js";
+import { createClientItem } from "./createClientItem.js";
+import { deleteClientModal } from './createDeleteModal.js';
+import { createContactItem } from "./createContact.js";
+import { sendClientData } from "./clientsApi.js";
 import { validateClientForm } from "./validateForm.js";
+import { validateClientContact } from "./validateContact.js";
 
 export const editClientModal = (data) => {
    const editModal = document.createElement('div');
@@ -11,11 +12,11 @@ export const editClientModal = (data) => {
    const createForm = createClientsForm();
    const titleId = document.createElement('span');
 
-   titleId.classList.add('modal__id');
+   titleId.classList.add('modal__id')
    editModal.classList.add('modal-edit', 'site-modal', 'modal-active');
    editModalContent.classList.add('edit-modal__content', 'site-modal__content', 'modal-active');
 
-   titleId.textContent = 'ID: ' + data.id.substr(0, 6);
+   titleId.textContent = 'ID: ' + data._id.substr(0, 6);
    createForm.modalTitle.textContent = 'Изменить данные';
    createForm.cancelBtn.textContent = 'Удалить клиента';
 
@@ -29,12 +30,13 @@ export const editClientModal = (data) => {
          deleteModal.deleteModalDelete.addEventListener('click', () => {
             try {
                deleteModal.deleteSpinner.style.display = 'block';
+
                setTimeout(() => {
-                  deleteClientItem(data.id);
-                  document.getElementById(data.id).remove();
+                  deleteClientItem(data._id);
+                  document.getElementById(data._id).remove();
                   deleteModal.deleteModal.remove();
-                  document.querySelector('.modal-edit').remove();
-               }, 1500)
+                  editModal.remove();
+               }, 1500);
             } catch (error) {
                console.log(error);
             } finally {
@@ -68,10 +70,9 @@ export const editClientModal = (data) => {
 
    createForm.form.addEventListener('submit', async (e) => {
       e.preventDefault();
-
       if (!validateClientForm()) {
          return;
-      };
+      }
 
       const contactTypes = document.querySelectorAll('.contact__name');
       const contactValues = document.querySelectorAll('.contact__input');
@@ -81,10 +82,10 @@ export const editClientModal = (data) => {
       for (let i = 0; i < contactTypes.length; i++) {
          if (!validateClientContact(contactTypes[i], contactValues[i])) {
             return;
-         };
+         }
          contacts.push({
             type: contactTypes[i].innerHTML,
-            value: contactValues[i].value,
+            value: contactValues[i].value
          });
       }
 
@@ -97,16 +98,16 @@ export const editClientModal = (data) => {
 
       try {
          spinner.style.display = 'block';
-         const editedData = await sendClientData(client, 'PATCH', data.id);
-         setTimeout(() => {
-            document.getElementById(editedData.id).remove();
-            document.querySelector('.clients__tbody').append(createClientItem(editedData));
-            document.querySelector('.modal-edit').remove();
-         }, 2000)
+         const editedData = await sendClientData(client, 'PATCH', data._id);
+         document.querySelector('.clients__tbody').replaceChild(
+            createClientItem(editedData),
+            document.getElementById(editedData._id)
+         );
+         editModal.remove();
       } catch (error) {
          console.log(error);
       } finally {
-         setTimeout(() => spinner.style.display = 'none', 2000);
+         spinner.style.display = 'none'
       }
    });
 
@@ -115,13 +116,13 @@ export const editClientModal = (data) => {
    editModal.append(editModalContent);
 
    document.addEventListener('click', (e) => {
-      if (e.target === editModal) {
+      if (e.target == editModal) {
          editModal.remove();
       }
    });
 
    return {
       editModal,
-      editModalContent,
+      editModalContent
    }
 } 

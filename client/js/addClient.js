@@ -50,14 +50,12 @@ export const addClientModal = () => {
       try {
          spinner.style.display = 'block';
          const data = await sendClientData(clientObj, 'POST');
-         setTimeout(() => {
-            document.querySelector('.clients__tbody').append(createClientItem(data));
-            document.querySelector('.modal').remove(); 
-         }, 2000)
+         document.querySelector('.clients__tbody').append(createClientItem(data));
+         modal.remove(); 
       } catch (error) {
          console.log(error);
       } finally {
-         setTimeout(() => spinner.style.display = 'none', 2000);
+         spinner.style.display = 'none';
       }
    });
 
